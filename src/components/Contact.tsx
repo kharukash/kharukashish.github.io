@@ -1,0 +1,75 @@
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+
+const socialLinks = [
+  {
+    icon: Github,
+    href: "https://github.com",
+    label: "GitHub",
+  },
+  {
+    icon: Linkedin,
+    href: "https://linkedin.com",
+    label: "LinkedIn",
+  },
+  {
+    icon: Twitter,
+    href: "https://twitter.com",
+    label: "Twitter",
+  },
+  {
+    icon: Mail,
+    href: "mailto:ashish@example.com?subject=Hello&body=Hi Ashish,",
+    label: "Email",
+  },
+];
+
+const Contact = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section id="contact" className="py-24 px-6 bg-secondary/30">
+      <div className="max-w-3xl mx-auto">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h2 className="text-sm font-heading font-medium text-muted-foreground uppercase tracking-widest mb-4">
+            Get In Touch
+          </h2>
+          <div className="w-12 h-0.5 bg-accent mx-auto mb-8" />
+          
+          <p className="text-muted-foreground mb-10">
+            Feel free to reach out. I'm always open to discussing new opportunities.
+          </p>
+
+          <div className="flex items-center justify-center gap-6">
+            {socialLinks.map((social, index) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target={social.label !== "Email" ? "_blank" : undefined}
+                rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                className="p-4 rounded-full border border-border bg-card hover:border-accent hover:bg-secondary transition-all duration-300"
+                aria-label={social.label}
+              >
+                <social.icon size={24} />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
