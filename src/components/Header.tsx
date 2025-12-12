@@ -41,22 +41,29 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           {!isMobile && (
-            <nav className="flex items-center gap-4">
+            <nav className="flex items-center gap-6">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
                 </button>
               ))}
               <button
                 onClick={toggleTheme}
-                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+                className="p-2 text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
                 aria-label="Toggle theme"
               >
-                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                {isDark ? (
+                  <Sun size={20} strokeWidth={2} />
+                ) : (
+                  <Moon size={20} strokeWidth={2} fill="currentColor" />
+                )}
+                <span className="text-base font-medium">
+                  {isDark ? "Light" : "Dark"}
+                </span>
               </button>
             </nav>
           )}
@@ -92,7 +99,7 @@ const Header = () => {
               className="mt-4 p-3 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Toggle theme"
             >
-              {isDark ? <Sun size={24} /> : <Moon size={24} />}
+              {isDark ? <Sun size={24} /> : <Moon size={24} fill="currentColor" />}
             </button>
           </nav>
         </div>

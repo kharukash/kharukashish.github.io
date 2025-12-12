@@ -1,9 +1,26 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-6">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center pt-16 px-6"
+    >
+      {/* Fixed background */}
+      <div
+        className="fixed inset-0 w-full h-full -z-10"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      {/* Overlay */}
+      <div className="fixed inset-0 -z-10 bg-background/70 dark:bg-background/80" />
+
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <motion.div
@@ -14,7 +31,7 @@ const Hero = () => {
           >
             AK
           </motion.div>
-          
+
           <div className="text-center md:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -24,7 +41,7 @@ const Hero = () => {
             >
               Ashish Kharuk
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -33,7 +50,7 @@ const Hero = () => {
             >
               Software Engineer
             </motion.p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
