@@ -8,21 +8,25 @@ const socialLinks = [
     icon: Github,
     href: "https://github.com",
     label: "GitHub",
+    fill: true,
   },
   {
     icon: Linkedin,
     href: "https://linkedin.com",
     label: "LinkedIn",
+    fill: true,
   },
   {
     icon: Twitter,
     href: "https://twitter.com",
     label: "Twitter",
+    fill: false,
   },
   {
     icon: Mail,
     href: "mailto:ashish@example.com?subject=Hello&body=Hi Ashish,",
     label: "Email",
+    fill: false,
   },
 ];
 
@@ -59,10 +63,10 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                className="p-3 bg-foreground text-background rounded-md hover:opacity-80 transition-opacity"
+                className="w-12 h-12 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                 aria-label={social.label}
               >
-                <social.icon size={22} />
+                <social.icon size={22} fill={social.fill ? "currentColor" : "none"} />
               </motion.a>
             ))}
           </div>

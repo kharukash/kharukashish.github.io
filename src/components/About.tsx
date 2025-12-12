@@ -4,16 +4,8 @@ import { useRef, useState } from "react";
 
 const skillCategories = [
   {
-    name: "Programming Languages",
-    skills: ["Python", "SQL", "IronPython"],
-  },
-  {
-    name: "Quotation Tool",
-    skills: ["SAP CPQ"],
-  },
-  {
-    name: "Integrations",
-    skills: ["Salesforce", "SAP CRM", "SAP ECC"],
+    name: "Languages",
+    skills: ["Python", "SQL", "IronPython", "JavaScript", "HTML", "CSS"],
   },
   {
     name: "Version Control",
@@ -21,7 +13,7 @@ const skillCategories = [
   },
   {
     name: "Tools",
-    skills: ["ServiceNow", "Jira", "ALM", "Postman", "VSCode", "Jupyter Notebook", "Power BI"],
+    skills: ["SAP CPQ", "Salesforce", "ServiceNow", "Jira", "ALM", "Postman", "VSCode", "Jupyter Notebook", "Power BI"],
   },
 ];
 
