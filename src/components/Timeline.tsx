@@ -12,18 +12,11 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "SAP Technical Consultant",
+    title: "Software Engineer",
     company: "Aspire Digital Technologies",
     location: "Remote",
     duration: "2024 – Present",
     skills: ["SAP CPQ", "IronPython", "Salesforce Integration", "API Development"],
-  },
-  {
-    title: "Software Developer",
-    company: "Previous Company",
-    location: "Mumbai, IN",
-    duration: "2023 – 2024",
-    skills: ["Python", "SQL", "Power BI", "Data Analysis"],
   },
 ];
 
@@ -54,7 +47,10 @@ const ExperienceCard = ({
             {item.title}
           </h3>
           <p className="text-muted-foreground font-medium mt-1">{item.company}</p>
-          <p className="text-sm text-muted-foreground mt-1">{item.location}</p>
+          <div className="flex items-center justify-between mt-2">
+            <p className="text-sm text-muted-foreground">{item.duration}</p>
+            <p className="text-sm text-muted-foreground">{item.location}</p>
+          </div>
           <p className="text-sm text-muted-foreground mt-3">
             {item.skills.join(", ")}
           </p>
@@ -80,18 +76,6 @@ const ExperienceCard = ({
         transition={{ duration: 0.3, delay: index * 0.2 + 0.4 }}
         className="absolute left-1/2 top-8 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-foreground rounded-full z-10"
       />
-
-      {/* Duration label */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.4, delay: index * 0.2 + 0.5 }}
-        className={`absolute top-6 ${
-          side === "left" ? "left-[calc(50%+1rem)]" : "right-[calc(50%+1rem)]"
-        } text-sm text-muted-foreground whitespace-nowrap`}
-      >
-        {item.duration}
-      </motion.div>
     </div>
   );
 };

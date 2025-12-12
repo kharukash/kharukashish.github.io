@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { Github, Linkedin, Mail } from "lucide-react";
+import bgLight from "@/assets/bg-light.png";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const Hero = () => {
   return (
@@ -12,7 +13,7 @@ const Hero = () => {
       <div
         className="fixed inset-0 w-full h-full -z-10"
         style={{
-          backgroundImage: `url(${heroBg})`,
+          backgroundImage: `url(${bgLight})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -33,19 +34,26 @@ const Hero = () => {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 bg-foreground text-background rounded-md hover:opacity-80 transition-opacity"
+            className="w-10 h-10 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
             aria-label="GitHub"
           >
-            <Github size={20} />
+            <Github size={20} fill="currentColor" />
           </a>
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 bg-foreground text-background rounded-md hover:opacity-80 transition-opacity"
+            className="w-10 h-10 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
             aria-label="LinkedIn"
           >
-            <Linkedin size={20} />
+            <Linkedin size={20} fill="currentColor" />
+          </a>
+          <a
+            href="mailto:ashish@example.com"
+            className="w-10 h-10 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
+            aria-label="Email"
+          >
+            <Mail size={20} />
           </a>
         </motion.div>
 
@@ -55,9 +63,13 @@ const Hero = () => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-secondary border-2 border-border flex items-center justify-center text-3xl md:text-4xl font-heading font-semibold text-foreground shrink-0"
+            className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-border overflow-hidden shrink-0"
           >
-            AK
+            <img
+              src={profilePhoto}
+              alt="Ashish Kharuk"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
 
           <motion.h1
