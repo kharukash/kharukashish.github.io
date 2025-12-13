@@ -6,25 +6,25 @@ import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 const socialLinks = [
   {
     icon: Github,
-    href: "https://github.com",
+    href: "https://github.com/kharukash",
     label: "GitHub",
     fill: true,
   },
   {
     icon: Linkedin,
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/ashish-kharuk-511b841b9/",
     label: "LinkedIn",
     fill: true,
   },
   {
     icon: Twitter,
-    href: "https://twitter.com",
+    href: "http://x.com/KharukAshish",
     label: "Twitter",
     fill: true,
   },
   {
     icon: Mail,
-    href: "mailto:ashish@example.com?subject=Hello&body=Hi Ashish,",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=ashishkharuk2001@gmail.com",
     label: "Email",
     fill: false,
   },
@@ -58,15 +58,15 @@ const Contact = () => {
               <motion.a
                 key={social.label}
                 href={social.href}
-                target={social.label !== "Email" ? "_blank" : undefined}
-                rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
                 className="w-12 h-12 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                 aria-label={social.label}
               >
-                <social.icon size={22} fill={social.fill ? "currentColor" : "none"} />
+                <social.icon size={22} fill="currentColor" />
               </motion.a>
             ))}
           </div>

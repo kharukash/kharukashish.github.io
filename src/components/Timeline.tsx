@@ -133,6 +133,8 @@ const MobileExperienceCard = ({
     <div className="relative flex items-start gap-4">
       {/* Left line with logo */}
       <div className="relative flex flex-col items-center">
+        {/* Vertical line behind the logo */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
@@ -141,9 +143,6 @@ const MobileExperienceCard = ({
         >
           <img src={item.logo} alt={item.company} className="w-7 h-7 object-contain" />
         </motion.div>
-        {index < experiences.length - 1 && (
-          <div className="w-px flex-1 bg-border mt-2" />
-        )}
       </div>
 
       {/* Content */}

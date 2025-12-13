@@ -3,15 +3,28 @@ import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+import sapCpqLogo from "@/assets/sap-cpq-logo.png";
+import almLogo from "@/assets/alm-logo.png";
+
 const skillCategories = [
+  {
+    name: "Languages",
+    skills: [
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    ],
+  },
   {
     name: "Tools",
     skills: [
-      { name: "SAP CPQ", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sap/sap-original.svg" },
+      { name: "SAP CPQ", icon: sapCpqLogo },
       { name: "Salesforce", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" },
       { name: "ServiceNow", icon: "https://www.servicenow.com/favicon.ico" },
       { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
-      { name: "ALM", icon: "https://cdn.worldvectorlogo.com/logos/micro-focus-1.svg" },
+      { name: "ALM", icon: almLogo },
       { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
       { name: "VSCode", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
       { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
@@ -23,16 +36,6 @@ const skillCategories = [
     skills: [
       { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
       { name: "Bitbucket", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" },
-    ],
-  },
-  {
-    name: "Languages",
-    skills: [
-      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-      { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg" },
-      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-      { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
     ],
   },
 ];
