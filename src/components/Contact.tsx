@@ -20,7 +20,7 @@ const socialLinks = [
     icon: Twitter,
     href: "https://twitter.com",
     label: "Twitter",
-    fill: false,
+    fill: true,
   },
   {
     icon: Mail,

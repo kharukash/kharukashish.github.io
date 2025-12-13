@@ -15,12 +15,12 @@ const Hero = () => {
         style={{
           backgroundImage: `url(${bgLight})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
         }}
       />
-      {/* Overlay */}
-      <div className="fixed inset-0 -z-10 bg-background/70 dark:bg-background/80" />
+      {/* Light overlay for readability */}
+      <div className="fixed inset-0 -z-10 bg-background/60 dark:bg-background/70" />
 
       <div className="max-w-4xl mx-auto text-center">
         {/* Social Icons - Above Avatar */}
@@ -28,7 +28,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center justify-center gap-4 mb-6"
+          className="flex items-center justify-center gap-4 mb-8"
         >
           <a
             href="https://github.com"
@@ -48,17 +48,10 @@ const Hero = () => {
           >
             <Linkedin size={20} fill="currentColor" />
           </a>
-          <a
-            href="mailto:ashish@example.com"
-            className="w-10 h-10 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
-            aria-label="Email"
-          >
-            <Mail size={20} />
-          </a>
         </motion.div>
 
         {/* Avatar and Name Row */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -72,25 +65,64 @@ const Hero = () => {
             />
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground"
-          >
-            Ashish Kharuk
-          </motion.h1>
+          <div className="flex flex-col items-center md:items-start">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-lg md:text-xl text-muted-foreground font-body"
+            >
+              Hi, I'm
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground"
+            >
+              Ashish Kharuk
+            </motion.h1>
+          </div>
         </div>
 
-        {/* Role */}
-        <motion.p
+        {/* Role with Social Icons */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-lg md:text-xl text-muted-foreground font-body mt-6"
+          className="flex items-center justify-center gap-4 mt-6"
         >
-          Software Engineer
-        </motion.p>
+          <p className="text-lg md:text-xl text-muted-foreground font-body">
+            Software Engineer
+          </p>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
+              aria-label="GitHub"
+            >
+              <Github size={16} fill="currentColor" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={16} fill="currentColor" />
+            </a>
+            <a
+              href="mailto:ashish@example.com"
+              className="w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
+              aria-label="Email"
+            >
+              <Mail size={16} />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

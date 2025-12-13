@@ -1,19 +1,39 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const skillCategories = [
   {
-    name: "Languages",
-    skills: ["Python", "SQL", "IronPython", "JavaScript", "HTML", "CSS"],
+    name: "Tools",
+    skills: [
+      { name: "SAP CPQ", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sap/sap-original.svg" },
+      { name: "Salesforce", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg" },
+      { name: "ServiceNow", icon: "https://www.servicenow.com/favicon.ico" },
+      { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+      { name: "ALM", icon: "https://cdn.worldvectorlogo.com/logos/micro-focus-1.svg" },
+      { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+      { name: "VSCode", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+      { name: "Jupyter", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
+      { name: "Power BI", icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" },
+    ],
   },
   {
     name: "Version Control",
-    skills: ["Git", "Bitbucket"],
+    skills: [
+      { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "Bitbucket", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" },
+    ],
   },
   {
-    name: "Tools",
-    skills: ["SAP CPQ", "Salesforce", "ServiceNow", "Jira", "ALM", "Postman", "VSCode", "Jupyter Notebook", "Power BI"],
+    name: "Languages",
+    skills: [
+      { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+      { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    ],
   },
 ];
 
@@ -23,6 +43,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const isSkillsInView = useInView(skillsRef, { once: true, margin: "-100px" });
   const [activeCategory, setActiveCategory] = useState(skillCategories[0].name);
+  const isMobile = useIsMobile();
 
   const activeSkills = skillCategories.find((cat) => cat.name === activeCategory)?.skills || [];
 
@@ -88,13 +109,23 @@ const About = () => {
           >
             {activeSkills.map((skill, index) => (
               <motion.div
-                key={skill}
+                key={skill.name}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-secondary/50 rounded-xl p-4 text-center hover:bg-secondary transition-colors"
+                className="bg-secondary/50 rounded-xl p-4 text-center hover:bg-secondary transition-colors flex flex-col items-center gap-2"
               >
-                <span className="text-sm font-medium text-foreground">{skill}</span>
+                {!isMobile && (
+                  <img 
+                    src={skill.icon} 
+                    alt={skill.name}
+                    className="w-10 h-10 object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                )}
+                <span className="text-sm font-medium text-foreground">{skill.name}</span>
               </motion.div>
             ))}
           </motion.div>
