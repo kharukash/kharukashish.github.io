@@ -122,7 +122,7 @@ const About = () => {
                   <img 
                     src={skill.icon} 
                     alt={skill.name}
-                    className="w-10 h-10 object-contain"
+                    className={`object-contain ${skill.name === "SAP CPQ" ? "w-14 h-14" : "w-10 h-10"}`}
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}

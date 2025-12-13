@@ -122,9 +122,11 @@ const DesktopExperienceCard = ({
 const MobileExperienceCard = ({
   item,
   index,
+  isLast,
 }: {
   item: ExperienceItem;
   index: number;
+  isLast: boolean;
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -132,17 +134,21 @@ const MobileExperienceCard = ({
   return (
     <div className="relative flex items-start gap-4">
       {/* Left line with logo */}
-      <div className="relative flex flex-col items-center">
-        {/* Vertical line behind the logo */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
+      <div className="relative flex flex-col items-center shrink-0">
+        {/* Vertical line - extends full height */}
+        <div className={`absolute left-1/2 w-px bg-border -translate-x-1/2 ${isLast ? 'top-0 h-6' : 'top-0 bottom-0'}`} />
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.3, delay: index * 0.2 }}
-          className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center z-10 overflow-hidden shrink-0"
+          className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center z-10 overflow-hidden"
         >
           <img src={item.logo} alt={item.company} className="w-7 h-7 object-contain" />
         </motion.div>
+        {/* Line below logo */}
+        {!isLast && (
+          <div className="flex-1 w-px bg-border" />
+        )}
       </div>
 
       {/* Content */}
@@ -153,16 +159,16 @@ const MobileExperienceCard = ({
         transition={{ duration: 0.5, delay: index * 0.2 }}
         className="flex-1 pb-8"
       >
-        <h3 className="text-base font-heading font-bold text-foreground">
+        <h3 className="text-lg font-heading font-bold text-foreground">
           {item.title}
         </h3>
-        <p className="text-sm text-muted-foreground font-medium">{item.company}</p>
-        <div className="flex items-center gap-2 mt-1 text-xs text-muted-foreground">
+        <p className="text-base text-muted-foreground font-medium">{item.company}</p>
+        <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
           <span>{item.duration}</span>
           <span>•</span>
           <span>{item.location}</span>
         </div>
-        <p className="text-xs text-muted-foreground mt-2">
+        <p className="text-sm text-muted-foreground mt-2">
           {item.skills.join(" • ")}
         </p>
       </motion.div>
@@ -219,6 +225,7 @@ const Timeline = () => {
                 key={exp.title + exp.company}
                 item={exp}
                 index={index}
+                isLast={index === experiences.length - 1}
               />
             ))}
           </div>

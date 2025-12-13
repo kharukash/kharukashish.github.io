@@ -66,7 +66,11 @@ const Contact = () => {
                 className="w-12 h-12 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                 aria-label={social.label}
               >
-                <social.icon size={22} fill="currentColor" />
+                {social.fill ? (
+                  <social.icon size={22} fill="currentColor" />
+                ) : (
+                  <social.icon size={22} />
+                )}
               </motion.a>
             ))}
           </div>

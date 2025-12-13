@@ -94,7 +94,7 @@ const Hero = () => {
               className="w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
               aria-label="Email"
             >
-              <Mail size={16} />
+              <Mail size={16} fill="currentColor" />
             </a>
           </div>
         </motion.div>
