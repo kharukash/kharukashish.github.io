@@ -26,6 +26,13 @@ const projects: Project[] = [
     technologies: ["Power BI", "DAX", "SQL", "Data Visualization"],
     githubUrl: "https://github.com",
   },
+  {
+    title: "Featured Project",
+    subtitle: "Portfolio Website",
+    description: "Vibecoded personal website with the help of Lovable AI and UX Pilot, emphasizing modern UI patterns.",
+    technologies: ["HTML", "CSS", "JavaScript", "TypeScript"],
+    githubUrl: "https://github.com/kharukash",
+  },
 ];
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {

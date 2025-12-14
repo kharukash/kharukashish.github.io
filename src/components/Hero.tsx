@@ -63,7 +63,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          className="flex items-center justify-center gap-4 mt-6"
+          className="flex items-center justify-center gap-4 mt-2"
         >
           <p className="text-xl md:text-2xl text-muted-foreground font-body">
             Software Engineer
