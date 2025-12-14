@@ -132,44 +132,42 @@ const MobileExperienceCard = ({
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div className="relative flex items-start gap-4">
+    <div className="relative flex items-start gap-3">
       {/* Left line with logo */}
       <div className="relative flex flex-col items-center shrink-0">
-        {/* Vertical line - extends full height */}
-        <div className={`absolute left-1/2 w-px bg-border -translate-x-1/2 ${isLast ? 'top-0 h-6' : 'top-0 bottom-0'}`} />
+        {/* Vertical line above logo */}
+        <div className="w-px h-4 bg-border" />
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.3, delay: index * 0.2 }}
-          className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center z-10 overflow-hidden"
+          className="w-10 h-10 bg-primary rounded-full flex items-center justify-center z-10 overflow-hidden shrink-0"
         >
-          <img src={item.logo} alt={item.company} className="w-7 h-7 object-contain" />
+          <img src={item.logo} alt={item.company} className="w-5 h-5 object-contain" />
         </motion.div>
         {/* Line below logo */}
         {!isLast && (
-          <div className="flex-1 w-px bg-border" />
+          <div className="flex-1 w-px bg-border min-h-[60px]" />
         )}
       </div>
 
-      {/* Content */}
+      {/* Content Card */}
       <motion.div
         ref={ref}
         initial={{ opacity: 0, x: 20 }}
         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
         transition={{ duration: 0.5, delay: index * 0.2 }}
-        className="flex-1 pb-8"
+        className="flex-1 bg-card border border-border rounded-lg p-4 mb-4 shadow-sm"
       >
         <h3 className="text-lg font-heading font-bold text-foreground">
           {item.title}
         </h3>
-        <p className="text-base text-muted-foreground font-medium">{item.company}</p>
-        <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
-          <span>{item.duration}</span>
-          <span>•</span>
-          <span>{item.location}</span>
-        </div>
+        <p className="text-base text-foreground font-medium">{item.location}</p>
         <p className="text-sm text-muted-foreground mt-2">
-          {item.skills.join(" • ")}
+          {item.skills.join(", ")}
+        </p>
+        <p className="text-sm text-muted-foreground mt-2">
+          {item.duration}
         </p>
       </motion.div>
     </div>

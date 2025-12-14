@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import bgLight from "@/assets/bg-light.png";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const Hero = () => {
   return (
@@ -43,7 +43,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground font-body"
+              className="text-2xl md:text-3xl text-muted-foreground font-body"
             >
               Hi, I'm
             </motion.p>
@@ -65,7 +65,7 @@ const Hero = () => {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="flex items-center justify-center gap-4 mt-6"
         >
-          <p className="text-lg md:text-xl text-muted-foreground font-body">
+          <p className="text-xl md:text-2xl text-muted-foreground font-body">
             Software Engineer
           </p>
           <div className="flex items-center gap-3">
@@ -94,7 +94,7 @@ const Hero = () => {
               className="w-8 h-8 bg-foreground text-background rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
               aria-label="Email"
             >
-              <Mail size={16} fill="currentColor" />
+              <Mail size={16} />
             </a>
           </div>
         </motion.div>
