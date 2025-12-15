@@ -188,12 +188,12 @@ const Timeline = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="max-w-3xl mx-auto mb-16"
         >
-          <h2 className="text-2xl md:text-3xl font-heading font-bold text-muted-foreground uppercase tracking-wider">
+          <h2 className="text-sm font-heading font-medium text-muted-foreground uppercase tracking-widest mb-4">
             Experience
           </h2>
-          <div className="w-16 h-0.5 bg-muted-foreground/50 mt-3" />
+          <div className="w-12 h-0.5 bg-accent" />
         </motion.div>
 
         {/* Timeline - Desktop */}
