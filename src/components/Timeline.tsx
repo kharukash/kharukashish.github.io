@@ -203,7 +203,7 @@ const Timeline = () => {
             <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-border" />
 
             {/* Experience items - alternating left and right */}
-            <div className="space-y-16 md:pl-[25px]">
+            <div className="space-y-16 md:pl-[50px]">
               {experiences.map((exp, index) => (
                 <DesktopExperienceCard
                   key={exp.title + exp.company}

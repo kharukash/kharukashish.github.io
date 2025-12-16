@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import bgLight from "@/assets/bg-light.png";
+import bgDark from "@/assets/bg-dark.png";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const Hero = () => {
@@ -9,9 +10,9 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center pt-16 px-6"
     >
-      {/* Fixed background */}
+      {/* Light mode background */}
       <div
-        className="fixed inset-0 w-full h-full -z-10"
+        className="fixed inset-0 w-full h-full -z-10 dark:hidden"
         style={{
           backgroundImage: `url(${bgLight})`,
           backgroundSize: "cover",
@@ -19,9 +20,18 @@ const Hero = () => {
           backgroundRepeat: "no-repeat",
         }}
       />
+      {/* Dark mode background */}
+      <div
+        className="fixed inset-0 w-full h-full -z-10 hidden dark:block"
+        style={{
+          backgroundImage: `url(${bgDark})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
       {/* Light overlay for readability */}
-      {/* Light overlay for readability */}
-      <div className="fixed inset-0 -z-10 bg-background/30 dark:bg-background/50" />
+      <div className="fixed inset-0 -z-10 bg-background/30 dark:bg-background/40" />
 
       <div className="max-w-5xl mx-auto text-center md:text-left">
         {/* Desktop Layout */}
