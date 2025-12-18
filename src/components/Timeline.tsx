@@ -38,7 +38,7 @@ const DesktopExperienceCard = ({
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div className="relative flex items-start">
+    <div className="relative flex items-center">
       {/* Left side content or empty space */}
       <div className={`w-[calc(50%-3rem)] ${side === "left" ? "" : "text-right"}`}>
         {side === "left" ? (
@@ -64,7 +64,7 @@ const DesktopExperienceCard = ({
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="flex flex-col items-end pr-4 pt-2"
+            className="flex flex-col items-end pr-4"
           >
             <p className="text-sm font-medium text-foreground">{item.duration}</p>
             <p className="text-sm text-muted-foreground">{item.location}</p>
@@ -73,14 +73,14 @@ const DesktopExperienceCard = ({
       </div>
 
       {/* Center line with company logo */}
-      <div className="relative w-24 flex justify-center">
+      <div className="relative w-24 flex justify-center items-center">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.3, delay: index * 0.2 + 0.2 }}
-          className="absolute top-4 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center z-10 overflow-hidden"
+          className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center z-10 overflow-hidden"
         >
-          <img src={item.logo} alt={item.company} className="w-6 h-6 object-contain" />
+          <img src={item.logo} alt={item.company} className="w-8 h-8 object-contain" />
         </motion.div>
       </div>
 
@@ -107,7 +107,7 @@ const DesktopExperienceCard = ({
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="flex flex-col items-start pl-4 pt-2"
+            className="flex flex-col items-start pl-4"
           >
             <p className="text-sm font-medium text-foreground">{item.duration}</p>
             <p className="text-sm text-muted-foreground">{item.location}</p>
@@ -180,7 +180,7 @@ const Timeline = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section id="experience" className="py-24 px-6 bg-secondary/30">
+    <section id="experience" className="pt-[200px] pb-[15px] px-6 bg-secondary/30">
       <div className="max-w-5xl mx-auto">
         {/* Section Title - Left aligned like About/Education */}
         <motion.div
