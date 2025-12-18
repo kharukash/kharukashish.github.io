@@ -34,7 +34,7 @@ const Header = () => {
         <div className="max-w-6xl mx-auto px-3 md:px-4 h-16 flex items-center justify-between">
           {!isMenuOpen && (
             <a href="#home" className="text-xl font-heading font-bold text-foreground hover:text-accent transition-colors">
-              Ash
+              ash
             </a>
           )}
           {isMenuOpen && <div />}
