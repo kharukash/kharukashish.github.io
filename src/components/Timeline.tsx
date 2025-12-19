@@ -180,7 +180,7 @@ const Timeline = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section id="experience" className="pt-[200px] pb-[15px] px-6 bg-secondary/30">
+    <section id="experience" className="py-24 px-6 bg-secondary/30">
       <div className="max-w-5xl mx-auto">
         {/* Section Title - Left aligned like About/Education */}
         <motion.div
@@ -199,8 +199,8 @@ const Timeline = () => {
         {/* Timeline - Desktop */}
         {!isMobile && (
           <div className="relative">
-            {/* Center vertical line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-border" />
+            {/* Center vertical line - positioned through the middle of the logo container */}
+            <div className="absolute left-[calc(50%+25px)] transform -translate-x-1/2 w-px h-full bg-border" />
 
             {/* Experience items - alternating left and right */}
             <div className="space-y-16 md:pl-[50px]">
