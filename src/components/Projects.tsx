@@ -58,7 +58,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             <img 
               src={project.previewImage} 
               alt={project.subtitle} 
-              className="w-[85%] h-[85%] object-contain"
+              className="w-[95%] h-[95%] object-contain"
             />
           ) : (
             <div className="text-center p-8">

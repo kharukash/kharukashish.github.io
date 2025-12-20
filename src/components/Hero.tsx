@@ -42,7 +42,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-2xl md:text-3xl text-muted-foreground font-body"
+              className="text-2xl md:text-3xl text-muted-foreground font-body mb-1"
             >
               Hi, I'm
             </motion.p>
@@ -50,7 +50,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground"
+              className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-foreground mb-2"
             >
               Ashish Kharuk
             </motion.h1>
